@@ -1,12 +1,13 @@
 FROM ubuntu:focal
 
-RUN apt-get update -y\
-    && apt install software-properties-common -y \
-    && add-apt-repository multiverse -y \
+RUN apt-get update -y \
+    && DEBIAN_FRONTEND=noninteractive
+    && apt install software-properties-common -yq \
+    && add-apt-repository multiverse -yq \
     && dpkg --add-architecture i386 \
-    && apt-get update -y \
-    && apt-get install -y tzdata libcurl4 libssl-dev gnupg ca-certificates curl unzip \
-    && apt-get install -y lib32stdc++6 mono-runtime libc6:i386 \
-    && apt-get install -y lib32z1 steamcmd tar curl coreutils libgdiplus  \
-    && apt-get install -y libgl1-mesa-glx:i386 libxcursor1:i386 libxrandr2:i386 libc6-dev-i386 lib32gcc1 screen \
+    && apt-get update -yq \
+    && apt-get install -yq tzdata libcurl4 libssl-dev gnupg ca-certificates curl unzip \
+    && apt-get install -yq lib32stdc++6 mono-runtime libc6:i386 \
+    && apt-get install -yq lib32z1 steamcmd tar curl coreutils libgdiplus  \
+    && apt-get install -yq libgl1-mesa-glx:i386 libxcursor1:i386 libxrandr2:i386 libc6-dev-i386 lib32gcc1 screen \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
