@@ -1,9 +1,9 @@
 FROM ubuntu:focal
 
-RUN apt-get update -y \
+RUN apt-get update -yq \
     && DEBIAN_FRONTEND=noninteractive \
-    && apt install software-properties-common -y \
-    && add-apt-repository multiverse -yq \
+    && apt install software-properties-common -yq \
+    && add-apt-repository multiverse -y \
     && dpkg --add-architecture i386 \
     && apt-get update -yq \
     && apt-get install -yq tzdata libcurl4 libssl-dev gnupg ca-certificates curl unzip \
