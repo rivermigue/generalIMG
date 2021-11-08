@@ -1,7 +1,7 @@
 FROM ubuntu:focal
 
 RUN apt-get update -y \
-    && DEBIAN_FRONTEND=noninteractive
+    && DEBIAN_FRONTEND=noninteractive \
     && apt install software-properties-common -yq \
     && add-apt-repository multiverse -yq \
     && dpkg --add-architecture i386 \
