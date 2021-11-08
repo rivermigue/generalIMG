@@ -1,7 +1,9 @@
 FROM ubuntu:focal
 
 RUN apt-get update -y\
-    && dpkg --add-architecture i386 -y \
+    && apt install software-properties-common -y \
+    && add-apt-repository multiverse -y \
+    && dpkg --add-architecture i386 \
     && apt-get update -y \
     && apt-get install -y tzdata libcurl4 libssl-dev gnupg ca-certificates curl unzip \
     && apt-get install -y lib32stdc++6 mono-runtime mono-reference-assemblies-2.0 libc6:i386 \
