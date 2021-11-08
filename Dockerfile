@@ -19,8 +19,3 @@ RUN adduser \
 	--gecos "user for running steam" \
 	--quiet \
 	steam
-
-WORKDIR /home/steam
-RUN curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz
-RUN ./steamcmd.sh +quit
-RUN mkdir -p /home/steam/.steam/sdk64/ && cp -f linux64/steamclient.so /home/steam/.steam/sdk64/steamclient.so
